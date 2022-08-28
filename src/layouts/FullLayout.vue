@@ -1,5 +1,6 @@
 <template>
   <div>
+    <side-bar />
     <nav>
       <router-link to="/dashboard"> Dashboard </router-link> |
       <router-link to="/aportes">Aportes</router-link> |
@@ -11,7 +12,10 @@
 </template>
 
 <script>
+import SideBar from "@/components/SideBar.vue";
+
 export default {
+  components: { SideBar },
   name: "FullLayout",
 };
 </script>
