@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     signin() {
-      console.log("LOGIN");
+      this.$store.dispatch("User/login", this.user);
     },
   },
 };
