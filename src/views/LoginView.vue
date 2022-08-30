@@ -2,7 +2,7 @@
   <div class="container">
     <div class="login">
       <div>Username</div>
-      <input id="username" type="text" v-model="user.username" />
+      <input id="username" type="text" v-model="user.email" />
       <div>Password</div>
       <input id="password" type="password" v-model="user.password" />
       <div>
@@ -23,6 +23,7 @@ export default {
   },
   methods: {
     signin() {
+      this.$store.dispatch("User/create", this.user);
       this.$store.dispatch("User/login", this.user);
     },
   },
