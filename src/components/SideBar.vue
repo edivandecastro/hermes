@@ -61,10 +61,10 @@ export default {};
 .sidebar {
   position: fixed;
   background: #f5f5ff;
-  width: 200px;
+  width: 120px;
   top: 0px;
   bottom: 0px;
-  box-shadow: -13px 10px 16px 11px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 3px 30px 0px rgba(0, 0, 0, 0.1), 0 3px 20px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
@@ -89,6 +89,12 @@ export default {};
   display: flex;
   height: inherit;
   width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  border-bottom: 1px solid #f3f3f3;
 }
 
 .vertical-line {
@@ -101,16 +107,14 @@ export default {};
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: inherit;
   width: inherit;
 }
 
 .icone {
-  padding: 10px 10px 0px;
-  font-size: 36px;
-}
-
-.label-button {
-  font-weight: 600;
+  padding: 5px;
+  font-size: 32px;
+  line-height: 42px;
 }
 </style>
