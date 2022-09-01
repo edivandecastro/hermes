@@ -25,6 +25,7 @@ export default {
     signin() {
       // this.$store.dispatch("User/create", this.user);
       this.$store.dispatch("User/login", this.user);
+      // this.$store.dispatch("User/logout");
     },
   },
 };
