@@ -60,7 +60,7 @@ export default {};
 <style scoped>
 .sidebar {
   position: fixed;
-  background: #f5f5ff;
+  background: #ffffff;
   width: 120px;
   top: 0px;
   bottom: 0px;
@@ -68,12 +68,8 @@ export default {};
 }
 
 .logo {
-  width: 150px;
-  margin: 20px;
-}
-
-.menu-bar {
-  margin-top: 25px;
+  width: 110px;
+  margin: 20px 0px 20px;
 }
 
 .menu {
@@ -97,8 +93,12 @@ export default {};
   border-bottom: 1px solid #f3f3f3;
 }
 
+.link-item:hover {
+  color: #008ecc;
+}
+
 .vertical-line {
-  background: #2222ad;
+  background: #008ecc;
   width: 3px;
   height: inherit;
 }
