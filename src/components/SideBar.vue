@@ -3,48 +3,11 @@
     <img class="logo" alt="logo" src="../assets/logo.png" />
     <div class="menu-bar">
       <ul class="menu">
-        <li>
-          <router-link class="link-item" to="/dashboard">
-            <div class="vertical-line"></div>
-            <div class="menu-button">
-              <i class="iconsminds-pie-chart-3 icone" />
-              <span class="label-button">Dashboard</span>
-            </div>
-          </router-link>
-        </li>
-        <li>
-          <router-link class="link-item" to="/aportes">
-            <div class="vertical-line"></div>
-            <div class="menu-button">
-              <i class="iconsminds-coins icone" />
-              <span class="label-button">Aportes</span>
-            </div>
-          </router-link>
-        </li>
-        <li>
-          <router-link class="link-item" to="/proventos">
-            <div class="vertical-line"></div>
-            <div class="menu-button background-animation">
-              <i class="iconsminds-financial icone" />
-              <span class="label-button">Proventos</span>
-            </div>
-          </router-link>
-        </li>
-        <li>
-          <router-link class="link-item" to="/ativos">
-            <div class="vertical-line"></div>
-            <div class="menu-button">
-              <i class="iconsminds-bar-chart-4 icone" />
-              <span class="label-button">Ativos</span>
-            </div>
-          </router-link>
-        </li>
-        <li>
-          <router-link class="link-item" to="/corretoras">
-            <div class="vertical-line"></div>
-            <div class="menu-button">
-              <i class="iconsminds-bank icone" />
-              <span class="label-button">Corretoras</span>
+        <li v-for="(item, index) in menus" :key="`parent_${index}`" :class="isActive(item.to)">
+          <router-link class="link-item" :to="item.to">
+            <div class="menu-button" @click="activateMenu(item.to)">
+              <i :class="`${item.icon} icone`" />
+              <span class="label-button">{{ item.label }}</span>
             </div>
           </router-link>
         </li>
@@ -54,7 +17,27 @@
 </template>
 
 <script>
-export default {};
+import menus from "@/constants/menu";
+
+export default {
+  data() {
+    return {
+      menus: menus,
+      activeMenuId: "",
+    };
+  },
+  mounted() {
+    this.activeMenuId = this.$route.path;
+  },
+  methods: {
+    activateMenu(menuId) {
+      this.activeMenuId = menuId;
+    },
+    isActive(menuId) {
+      return this.activeMenuId === menuId ? "active" : "";
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -97,10 +80,19 @@ export default {};
   color: #008ecc;
 }
 
-.vertical-line {
+.sidebar .menu-bar ul li.active:before {
+  content: " ";
   background: #008ecc;
-  width: 3px;
-  height: inherit;
+  border-radius: 10px;
+  position: absolute;
+  width: 5px;
+  height: 99px;
+  margin-top: 6px;
+  left: 0;
+}
+
+.sidebar .menu-bar ul li.active .link-item {
+  color: #008ecc;
 }
 
 .menu-button {
