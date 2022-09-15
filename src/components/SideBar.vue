@@ -1,6 +1,5 @@
 <template>
   <div class="sidebar">
-    <img class="logo" alt="logo" src="../assets/logo.png" />
     <div class="menu-bar">
       <ul class="menu">
         <li v-for="(item, index) in menus" :key="`parent_${index}`" :class="isActive(item.to)">
@@ -45,14 +44,9 @@ export default {
   position: fixed;
   background: #ffffff;
   width: 120px;
-  top: 0px;
+  top: 105px;
   bottom: 0px;
   box-shadow: 0px 3px 30px 0px rgba(0, 0, 0, 0.1), 0 3px 20px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
-  width: 110px;
-  margin: 20px 0px 20px;
 }
 
 .menu {
