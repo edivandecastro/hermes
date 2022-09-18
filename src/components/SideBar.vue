@@ -62,11 +62,9 @@ export default {
   display: flex;
   height: inherit;
   width: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 13px;
+  font-size: 14px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 200;
   border-bottom: 1px solid #f3f3f3;
 }
 
