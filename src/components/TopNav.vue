@@ -30,7 +30,7 @@
           </template>
           <b-dropdown-item>Account</b-dropdown-item>
           <b-dropdown-divider />
-          <b-dropdown-item>Sign out</b-dropdown-item>
+          <b-dropdown-item @click="signout">Sign out</b-dropdown-item>
         </b-dropdown>
       </div>
     </div>
@@ -38,7 +38,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    signout() {
+      this.$store.dispatch("User/logout");
+    },
+  },
+};
 </script>
 
 <style>
