@@ -9,6 +9,10 @@ import {
 } from "firebase/auth";
 import { User } from "@/models/User";
 import JwtService from "@/utils/jwt";
+import router from "@/config/router";
+import VueRouter from "vue-router";
+
+const { isNavigationFailure, NavigationFailureType } = VueRouter;
 
 const app = initializeApp(firebaseConfig);
 
@@ -26,13 +30,19 @@ export default {
   },
 
   actions: {
-    login({ commit }, { email, password }) {
+    login({ commit }, { credentials, redirect }) {
       const auth = getAuth(app);
 
-      signInWithEmailAndPassword(auth, email, password)
+      signInWithEmailAndPassword(auth, credentials.email, credentials.password )
         .then((userCredential) => {
           commit('setUser', userCredential.user);
           JwtService.setToken(userCredential.user.accessToken);
+
+          router.push(redirect).catch((e) => {
+            if (!isNavigationFailure(e, NavigationFailureType.redirected)) {
+              Promise.reject(e);
+            }
+          });
         })
         .catch((error) => {
           const errorCode = error.code;
