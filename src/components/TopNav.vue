@@ -41,7 +41,7 @@
 export default {
   methods: {
     signout() {
-      this.$store.dispatch("User/logout");
+      this.$store.dispatch("UserModule/logout");
     },
   },
 };
